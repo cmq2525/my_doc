@@ -20,3 +20,11 @@ cd FlameGraph
 # 生成svg格式的火焰图
 ./flamegraph.pl perf.fold > perf.svg
 ```
+
+### 2.使用perf stat记录特定事件
+使用`perf list`可以查看可被记录的事件
+
+例如，我们想要记录`L1-cache`miss的次数：
+```bash
+perf stat -e L1-dcache-load-misses ./main
+```
